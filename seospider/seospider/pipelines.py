@@ -8,4 +8,6 @@
 
 class SeospiderPipeline(object):
     def process_item(self, item, spider):
+        with open('text.txt', 'w') as f:
+            f.write(item['content'].encode('utf8'))
         return item
