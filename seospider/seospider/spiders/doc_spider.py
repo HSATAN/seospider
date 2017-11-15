@@ -39,3 +39,4 @@ class DocmentSpider(CrawlSpider):
         blank_line = re.compile('\n+')
         s = blank_line.sub('\n', s)
         return s
+    

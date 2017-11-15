@@ -12,5 +12,6 @@ class SeospiderPipeline(object):
         # with open('data/' + hashlib.md5(item['url']).hexdigest(), 'w') as f:
         #     f.write(item['content'].encode('utf8'))
         sql = "insert into document(url, html) VALUES ('%s', '%s')" % (item['url'], item['html'].replace("'", '"'))
+        print(sql)
         MysqlDB.insert(sql)
         return item
