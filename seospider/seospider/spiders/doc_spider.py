@@ -12,8 +12,8 @@ import re
 class DocmentSpider(CrawlSpider):
 
     name = 'doc_spider'
-    rules = (Rule(link_extractor=LinkExtractor(), callback='parse_item', follow=True),)
-    start_urls = ['http://dl.pconline.com.cn/download/358355.html']
+    rules = (Rule(link_extractor=LinkExtractor(), callback='parse_item', follow=False),)
+    start_urls = ['http://www.chinanews.com/']
 
     def parse_item(self, reponse):
         # sel = Selector(text = self.filter_tags(reponse.text))
@@ -39,4 +39,3 @@ class DocmentSpider(CrawlSpider):
         blank_line = re.compile('\n+')
         s = blank_line.sub('\n', s)
         return s
-    
