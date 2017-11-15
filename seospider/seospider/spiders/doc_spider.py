@@ -16,16 +16,16 @@ class DocmentSpider(CrawlSpider):
     start_urls = ['http://dl.pconline.com.cn/download/358355.html']
 
     def parse_item(self, reponse):
-        print(dir(reponse))
-        sel = Selector(text = self.filter_tags(reponse.text))
+        # sel = Selector(text = self.filter_tags(reponse.text))
         item = DocmentItem()
         item['url'] = reponse.url
-        item['title'] = ','.join(sel.xpath("//title//text()").extract())
-        item['content'] = sel.xpath("//body//text()").extract()
-        if item['content']:
-            item['content'] = ','.join(set(item['content'])).replace(' ','')\
-                .replace('\n','').replace('\r','').replace('\t','')
-        print(reponse.url)
+        item['html'] = reponse.text
+        # item['title'] = ','.join(sel.xpath("//title//text()").extract())
+        # item['content'] = sel.xpath("//body//text()").extract()
+        # if item['content']:
+        #     item['content'] = ','.join(set(item['content'])).replace(' ','')\
+        #         .replace('\n','').replace('\r','').replace('\t','')
+        # print(reponse.url)
         return item
 
     def filter_tags(self, htmlstr):

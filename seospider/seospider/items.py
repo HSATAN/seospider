@@ -16,7 +16,8 @@ class SeospiderItem(scrapy.Item):
 
 class DocmentItem(scrapy.Item):
 
-    title = scrapy.Field()
-    content = scrapy.Field()
+    # title = scrapy.Field()
+    # content = scrapy.Field()
     url = scrapy.Field()
+    html = scrapy.Field()
 
